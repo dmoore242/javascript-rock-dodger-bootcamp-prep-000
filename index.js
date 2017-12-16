@@ -96,15 +96,15 @@ function createRock(x) {
  * and removing the `moveDodger` event listener.
  * Finally, alert "YOU LOSE!" to the player.
  */
-function endGame() {
-  clearInterval(gameInterval);
-  ROCKS.forEach(function(rock)
-      {rock.remove()
-      });
-  document.removeEventListener('keydown',moveDodger);
-  return alert('YOU LOSE!');
+function endGame() {//To end game, do these things:
+  clearInterval(gameInterval);//End game by clearing `gameInterval`
+  
+  ROCKS.forEach(function(rock) { rock.remove() });//remove all ROCKS from DOM
+  
+  window.removeEventListener('keydown', moveDodger);//remove `moveDodger` event listener
+  
+  return alert('YOU LOSE!');//alert game player with 'YOU LOSE!'
 }
-
 function moveDodger(e) {
   if([LEFT_ARROW, RIGHT_ARROW].indexOf(e.which) > -1){
     e.preventDefault();
